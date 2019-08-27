@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.EmployeeVoMapper">
+
+    <resultMap id="Base_EmployeeVoMap" type="com.hlh.cbms.domain.vo.EmployeeVo">
+        <id property="eid" column="eid"/>
+        <result property="username" column="username"/>
+        <result property="eMobile" column="e_mobile"/>
+        <result property="salary" column="salary"/>
+        <result property="jionDate" column="jion_date"/>
+        <result property="eLevel" column="e_level"/>
+        <result property="isSupper" column="is_supper"/>
+        <association property="address" javaType="com.hlh.cbms.domain.entity.Address">
+            <id property="aid" column="aid"/>
+            <result property="city" column="city"/>
+            <result property="nativePlace" column="native_place"/>
+        </association>
+        <association property="imgas" javaType="com.hlh.cbms.domain.entity.Imgas">
+            <id property="IId" column="i_id"/>
+            <result property="IImg" column="i_img"/>
+        </association>
+    </resultMap>
+
+    <select id="findByEmployeeVos" resultMap="Base_EmployeeVoMap">
+        SELECT e.eid, e.username,i_img, e.e_mobile, e.salary,a.city, a.native_place, e.jion_date, e.e_level, e.is_supper
+        FROM employee e LEFT JOIN address a ON e.eid = a.eid LEFT JOIN imgas i ON e.eid = i.eid
+        WHERE e.status =1;
+    </select>
+
+    <insert id="findBySave" >
+        INSERT INTO employee   (eid,username,e_mobile,e_level)
+        VALUES (#{employeeVo.eid},#{employeeVo.username},#{employeeVo.eMobile},#{employeeVo.eLevel})
+    </insert>
+
+    <update id="findByUpdate">
+        UPDATE employee
+        SET  e_mobile =#{employeeVo.eMobile},salary =#{employeeVo.salary}
+        WHERE eid =#{employeeVo.eid}
+
+    </update>
+
+    <delete id="findByDelete">
+        UPDATE  employee set status =0
+        WHERE eid =#{eid}
+    </delete>
+</mapper>

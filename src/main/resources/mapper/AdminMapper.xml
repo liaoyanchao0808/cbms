@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.AdminMapper">
+
+    <resultMap id="Base_Login" type="com.hlh.cbms.domain.entity.Admin">
+        <result property="aName" column="a_name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <select id="loginName" resultMap="Base_Login">
+        SELECT a_name,password
+        FROM admin
+        WHERE a_name =#{aName} AND password =#{password}
+    </select>
+
+</mapper>
