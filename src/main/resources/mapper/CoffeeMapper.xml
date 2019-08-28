@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.CoffeeMapper">
+
+    <resultMap id="Base_CoffeeMap" type="com.hlh.cbms.domain.entity.Coffee">
+            <id property="coffeeId" column="coffee_id"/>
+            <result property="coffeeImage" column="coffee_image"/>
+            <result property="coffeePrice" column="coffee_price"/>
+
+    </resultMap>
+</mapper>

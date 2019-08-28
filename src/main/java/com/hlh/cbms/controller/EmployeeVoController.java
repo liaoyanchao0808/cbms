@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 @RequestMapping("/api/v1")
-public class indexController {
+public class EmployeeVoController {
     @Resource
     EmployeeVoService employeeVoService;
 

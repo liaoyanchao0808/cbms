@@ -96,11 +96,11 @@
     </dependency>
     <!-- 8 serlvet 包-->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
-      <scope>provided</scope>
-    </dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+  </dependency>
     <!-- 9 fastjson 工具 -->
     <dependency>
       <groupId>com.alibaba</groupId>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.IceMapper">
+
+    <resultMap id="Base_IceMap" type="com.hlh.cbms.domain.entity.Ice">
+        <id property="iceId" column="ice_id"/>
+        <result property="iceImage" column="ice_image"/>
+        <result property="icePrice" column="ice_price"/>
+
+    </resultMap>
+</mapper>

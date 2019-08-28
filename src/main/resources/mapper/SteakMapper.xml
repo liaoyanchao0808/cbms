@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.SteakMapper">
+
+    <resultMap id="Base_SteakMap" type="com.hlh.cbms.domain.entity.Steak">
+        <id property="steakId" column="steak_id"/>
+        <result property="steakImage" column="steak_image"/>
+        <result property="steakPrice" column="steak_price"/>
+
+    </resultMap>
+</mapper>

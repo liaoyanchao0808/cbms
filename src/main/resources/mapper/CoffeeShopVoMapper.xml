@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.CoffeeShopVoMapper">
+    <resultMap id="Base_CoffeeShopMap" type="com.hlh.cbms.domain.vo.CoffeeShopVo">
+        <id property="sid" column="sid"/>
+        <result property="type" column="type"/>
+        <result property="typeId" column="type_id"/>
+        <collection property="coffees" resultMap="com.hlh.cbms.mapper.CoffeeMapper.Base_CoffeeMap"/>
+        <collection property="ices" resultMap="com.hlh.cbms.mapper.IceMapper.Base_IceMap"/>
+        <collection property="ielses" resultMap="com.hlh.cbms.mapper.IelseMapper.Base_IelseMap"/>
+        <collection property="stacks" resultMap="com.hlh.cbms.mapper.SteakMapper.Base_SteakMap"/>
+    </resultMap>
+
+    <select id="findByCoffeeShopVos" resultMap="Base_CoffeeShopMap">
+        SELECT cs.sid, cs.type_id, cs.type,
+        c.coffee_id, c.coffee_image, c.coffee_type, c.coffee_price, c.coffee_details, c.coffee_statu, c.type_id,
+        i.ice_id, i.ice_image, i.ice_type, i.ice_price, i.ice_details, i.ice_statu, i.type_id,
+         ie.else_id, ie.else_image, ie.else_type, ie.else_price, ie.else_details, ie.else_statu, ie.type_id,
+         s.steak_id, s.steak_image, s.steak_type, s.steak_price, s.steak_details
+        FROM coffee_shop cs
+        LEFT JOIN coffee c ON cs.type_id =c.type_id
+        LEFT JOIN ice i ON  cs.type_id =i.type_id
+        LEFT JOIN ielse ie ON cs.type_id =ie.type_id
+        LEFT JOIN steak s ON cs.type_id =s.type_id
+    </select>
+
+
+</mapper>

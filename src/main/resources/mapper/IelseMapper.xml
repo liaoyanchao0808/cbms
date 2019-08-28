@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.IelseMapper">
+    <resultMap id="Base_IelseMap" type="com.hlh.cbms.domain.entity.Ielse">
+        <id property="elseId" column="else_id"/>
+        <result property="elseImage" column="else_image"/>
+        <result property="elsePrice" column="else_price"/>
+
+    </resultMap>
+
+</mapper>
