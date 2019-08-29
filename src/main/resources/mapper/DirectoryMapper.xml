@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hlh.cbms.mapper.DirectoryMapper">
+
+    <resultMap id="Base_DirectoryMap" type="com.hlh.cbms.domain.vo.DirectoryVo">
+        <id property="dId" column="d_id"/>
+        <result property="dName" column="d_name"/>
+        <collection property="recentNews" ofType="com.hlh.cbms.domain.entity.RecentNews">
+            <id property="rnId" column="rn_id"/>
+            <result property="rnName" column="rn_name"/>
+        </collection>
+    </resultMap>
+    <select id="findDirectoryVos" resultMap="Base_DirectoryMap">
+        SELECT d.d_id, d.d_name, d.nav_id, r.rn_id, r.rn_name
+        FROM directory d LEFT JOIN recent_news r ON d.d_id =r.d_id
+    </select>
+</mapper>

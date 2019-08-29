@@ -8,7 +8,7 @@ import com.hlh.cbms.domain.vo.CoffeeShopVo;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public interface CoffeeShopVoMapper {
+public interface CoffeeShopMapper {
 
     ArrayList<CoffeeShopVo> findByCoffeeShopVos();
 
